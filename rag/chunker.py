@@ -1,21 +1,15 @@
-from loader import load_all_pdfs
-from sentence_transformers import SentenceTransformer
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
+from loader import load_all_pdfs
 
 documents = load_all_pdfs()
 
-splitter = RecursiveCharacterTextSplitter(
-    chunk_size=500,
-    chunk_overlap=50
-)
+def create_chunks():
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=500,
+        chunk_overlap=50
+    )
 
-chunks = splitter.split_documents(documents)
+    chunks = splitter.split_documents(documents)
+    texts = [c.page_content for c in chunks]
+    return texts
 
-texts = [c.page_content for c in chunks]
-
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-embeddings = model.encode(texts)
-
-
-print("Embedding shape:", embeddings.shape)
