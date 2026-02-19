@@ -53,7 +53,6 @@ if __name__ == "__main__":
         )
         retriever = vector_store.as_retriever(search_kwargs={"k": 3})
     except RuntimeError as e:
-        print(f"Qdrant is already in use by another process: {e}")
         raise SystemExit(1)
 
     try:
@@ -63,7 +62,8 @@ if __name__ == "__main__":
                 break
             if not q:
                 continue
-            print(ask(q, retriever))
+            answer = ask(q, retriever)
+            print(answer)
     except (EOFError, KeyboardInterrupt):
         pass
     finally:

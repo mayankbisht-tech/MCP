@@ -2,7 +2,7 @@ import os
 from langchain_community.document_loaders import PyPDFLoader
 
 def load_all_pdfs():
-    folder_path = r"C:\Users\LENOVO\Desktop\projects\rag_based_chatbot\rag\books"
+    folder_path = os.path.join(os.path.dirname(__file__), "books")
     
     all_docs = []
     pdf_files = [f for f in os.listdir(folder_path) if f.lower().endswith(".pdf")]

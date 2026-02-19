@@ -1,9 +1,9 @@
 torch
-transformers==4.21.0
-sentence-transformers==2.2.0
-huggingface-hub==0.10.1
-langchain==0.0.354
-langchain-community==0.0.13
-qdrant-client==1.6.4
-pypdf==3.17.4
-python-dotenv==1.0.0
+transformers
+sentence-transformers
+huggingface-hub
+langchain
+langchain-community
+qdrant-client
+pypdf
+python-dotenv

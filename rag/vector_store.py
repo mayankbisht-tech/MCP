@@ -31,5 +31,4 @@ for i, (text, embedding) in enumerate(zip(texts, embeddings)):
     ))
 
 client.upsert(collection_name=collection_name, points=points)
-print(f"Indexed {len(points)} documents")
 client.close()
