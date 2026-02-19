@@ -11,8 +11,6 @@ __pycache__/
 
 qdrant_data/
 
-*.pdf
-
 .DS_Store
 Thumbs.db
 
