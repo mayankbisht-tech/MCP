@@ -1,16 +1,18 @@
-from langchain_community.document_loaders import PyPDFLoader
 import os
+from langchain_community.document_loaders import PyPDFLoader
 
 def load_all_pdfs():
-    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    folder_path = r"C:\Users\LENOVO\Desktop\projects\rag_based_chatbot\rag\books"
     
-    loader1 = PyPDFLoader(os.path.join(parent_dir, "02Riskfree Arbitrage.pdf"), mode="single")
-    loader2 = PyPDFLoader(os.path.join(parent_dir, "MSE444.pdf"), mode="single")
-    loader3 = PyPDFLoader(os.path.join(parent_dir, "0137010028.pdf"), mode="single")
-
-    docs1 = loader1.load()
-    docs2 = loader2.load()
-    docs3 = loader3.load()
+    all_docs = []
+    pdf_files = [f for f in os.listdir(folder_path) if f.lower().endswith(".pdf")]
     
-    all_docs = docs1 + docs2 + docs3
+    for pdf in pdf_files:
+        full_path = os.path.join(folder_path, pdf)
+        loader = PyPDFLoader(full_path, mode="single")
+        all_docs.extend(loader.load())
+    
     return all_docs
+
+if __name__ == "__main__":
+    load_all_pdfs()

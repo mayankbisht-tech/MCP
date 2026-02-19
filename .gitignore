@@ -17,3 +17,6 @@ qdrant_data/
 Thumbs.db
 
 *.log
+
+indexed_docs.json
+doc_embeddings.pkl
