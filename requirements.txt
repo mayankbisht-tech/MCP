@@ -2,8 +2,10 @@ torch
 transformers
 sentence-transformers
 huggingface-hub
+groq
 langchain
 langchain-community
+langchain-groq
 qdrant-client
 pypdf
 python-dotenv

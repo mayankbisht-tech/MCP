@@ -1,6 +1,10 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from loader import load_all_pdfs
 import re
+
+try:
+    from rag.loader import load_all_pdfs
+except ImportError:
+    from loader import load_all_pdfs
 
 def create_chunks():
     documents = load_all_pdfs()
